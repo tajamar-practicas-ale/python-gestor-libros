@@ -1,17 +1,16 @@
 from flask import Blueprint, request, jsonify
-from models.libro import LibroModel
-from app import db
+from models import LibroModel, db
 
 libros_bp = Blueprint('libros', __name__)
 
 # Obtener todos los libros
-@libros_bp.route('/api/libros/', methods=['GET'])
+@libros_bp.route('/libros', methods=['GET'])
 def get_libros():
     libros = LibroModel.query.all()
     return jsonify([{'id': libro.id, 'titulo': libro.titulo, 'autor': libro.autor, 'precio': libro.precio} for libro in libros])
 
 # Crear un nuevo libro
-@libros_bp.route('/api/libros/', methods=['POST'])
+@libros_bp.route('/api/libros', methods=['POST'])
 def create_libro():
     data = request.get_json()
     titulo = data.get('titulo')

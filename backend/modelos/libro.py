@@ -24,17 +24,4 @@ class Libro:
             raise ValueError('Precio negativo')
         self.__precio = valor
 
-from app import db
 
-class LibroModel(db.Model):
-    __tablename__ = 'libros'  # Nombre de la tabla en la base de datos
-
-    id = db.Column(db.Integer, primary_key=True)  # Campo id como clave primaria
-    titulo = db.Column(db.String(255), nullable=False)
-    autor = db.Column(db.String(255), nullable=False)
-    precio = db.Column(db.Float, nullable=False)
-
-    def __init__(self, titulo, autor, precio):
-        self.titulo = titulo
-        self.autor = autor
-        self.precio = precio

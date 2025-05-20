@@ -1,7 +1,7 @@
 const BASE = 'http://localhost:5000/api';
 
 export const getLibros = () => {
-    return fetch(`${BASE}/libros/`)
+    return fetch(`${BASE}/libros`)
         .then(r => r.json())
         .catch(error => console.error("Error al obtener libros:", error));
 };

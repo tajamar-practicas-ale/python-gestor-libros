@@ -13,7 +13,7 @@ const Login = () => {
         login({ username, password, role })
             .then(data => {
                 localStorage.setItem('token', data.token);
-                navigate('/libros');
+                navigate('/libros/');
             })
             .catch(() => alert("Credenciales incorrectas"));
     };
